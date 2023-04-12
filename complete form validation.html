@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMPLETE FORM VALIDATION IN JAVASCRIPT</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+
+<body>
+    <h1 class="text-center text-success">COMPLETE FORM VALIDATION IN JAVASCRIPT</h1><br>
+    <div class="container">
+        <div class="col-lg-8 m-auto d-block">
+            <form class="bg-light" onsubmit="return validation()">
+                <div class="form-group">
+                    <label>UserName:</label>
+                    <input type="text" name="user" id="username" class="form-control" autocomplete="off">
+                    <span id="usernames" class="text-danger  font-weight-bold"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="text" name="user" id="password" class="form-control" autocomplete="off">
+                    <span id="passwords" class="text-danger  font-weight-bold"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Comfirm password:</label>
+                    <input type="text" name="user" id="comfirm password" class="form-control" autocomplete="off">
+                    <span id="comfirm passwords" class="text-danger  font-weight-bold"></span>
+
+                </div>
+
+                <div class="form-group">
+                    <label>Mobile number:</label>
+                    <input type="text" name="user" id="mobile number" class="form-control" autocomplete="off">
+                    <span id="mobile numbers" class="text-danger  font-weight-bold"></span>
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="text" name="user" id="email" class="form-control" autocomplete="off">
+                    <span id="emails" class="text-danger  font-weight-bold"></span>
+                </div>
+                <br><br>
+                <input type="submit" value="Submit" class="btn btn-success ">
+            </form>
+
+
+
+
+        </div>
+    </div>
+
+
+    <script>
+
+        function validation() {
+            var user = document.getElementById('username').value;
+            var Password = document.getElementById('password').value;
+            var comfirmPassword = document.getElementById('comfirm password').value;
+            var moblieNumber = document.getElementById('mobile number').value;
+            var emailId = document.getElementById('email').value;
+            // username validation starts 
+            if (user == '') {
+                document.getElementById('usernames').innerHTML = "*Please Enter Your Name."
+                return false;
+            }
+
+            if ((user.length < 3) || (user.length > 20)) {
+                document.getElementById('usernames').innerHTML = "*Please Fill The Username between 3 and 20.";
+                return false;
+            }
+            if (!isNaN(user)) {
+                document.getElementById('usernames').innerHTML = "*Please Enter Only Character.";
+                return false;
+            }
+            // username validation Ends.
+
+            // password validation starts
+            if (Password == '') {
+                document.getElementById('passwords').innerHTML = "*Please Enter Your Password."
+                return false;
+            }
+            if ((Password.length < 5) || (Password.length > 25)) {
+                document.getElementById('passwords').innerHTML = "*Please Fill The Password between 5 and 20.";
+                return false;
+            }
+            
+            if (comfirmPassword == '') {
+                document.getElementById('comfirm passwords').innerHTML = "*Please Enter Your Password."
+                return false;
+            }
+            if (Password !=comfirmPassword) {
+                document.getElementById('comfirm passwords').innerHTML = "*Password are not matching.";
+                return false;
+            }
+            // password validation ends.
+
+            // mobilenumber validation starts
+            if (moblieNumber == '') {
+                document.getElementById('mobile numbers').innerHTML = "*Please Enter Your MobileNumber."
+                return false;
+            }
+            if (moblieNumber.length != 10) {
+                document.getElementById('mobile numbers').innerHTML = "*Please Enter MobileNumber should be 10 digit."
+                return false;
+            }
+            if (isNaN(moblieNumber)) {
+                document.getElementById('mobile numbers').innerHTML = "*Please Enter only Number not charactor."
+                return false;
+            }
+            // Moblienumber validation ends.
+
+
+            // emailid validation starts.
+            if (emailId == '') {
+                document.getElementById('emails').innerHTML = "*Please Enter EmailId."
+                return false;
+            }
+            if (emailId.indexOf('@') <= 0) {
+                document.getElementById('emails').innerHTML = "*Please Enter valid proper format @."
+                return false;
+            }
+            if ((emailId.charAt(emailId.length- 4)!= '.') && (emailId.charAt(emailId.length-3)!= '.')) {
+                document.getElementById('emails').innerHTML = "*Please Enter email id proper format.."
+                return false;
+            }
+             // emailid validation ends.
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
